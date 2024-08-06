@@ -1,0 +1,29 @@
+{
+  "bucket": "heart-disease-data-prediction",
+  "model_keys": [
+    "models/logistic_regression_model.pkl",
+    "models/random_forest_model.pkl",
+    "models/svm_model.pkl",
+    "models/xgboost_model.pkl",
+    "models/gradient_boosting_model.pkl",
+    "models/lightgbm_model.pkl",
+    "models/catboost_model.pkl",
+    "models/extra_trees_model.pkl"
+  ],
+  "scaler_key": "models/scaler.pkl",
+  "data": {
+    "trestbps": 160,
+    "age": 50,
+    "sex": 0,
+    "cp": 2,
+    "chol": 220,
+    "fbs": 0,
+    "restecg": 0,
+    "thalach": 80,
+    "exang": 0,
+    "oldpeak": 0.5,
+    "slope": 1,
+    "ca": 2,
+    "thal": 1
+  }
+}

@@ -1,0 +1,51 @@
+service: heart-disease-prediction
+
+provider:
+  name: aws
+  runtime: python3.8
+  deploymentBucket:
+    name: heart-disease-deployment-bucket
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+      Resource: arn:aws:s3:::heart-disease-data-prediction/*
+
+functions:
+  predict:
+    handler: functions/predict.handler
+    events:
+      - http:
+          path: predict
+          method: post
+  train_models:
+    handler: functions/training.handler
+
+plugins:
+  - serverless-python-requirements
+  - serverless-layers
+
+custom:
+  pythonRequirements:
+    dockerizePip: false  # Disable Docker
+    fileName: requirements_clean.txt
+    layer: true
+  serverless-layers:
+    layersDeploymentBucket: heart-disease-deployment-bucket
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!__pycache__/**'
+    - '!tests/**'
+    - '!docs/**'
+    - '!functions/processing.py'
+    - '!functions/training.py'
+    - '!Dockerfile'
+    - '!package.json'
+    - '!package-lock.json'
+    - '!six.py'
+    - '!threadpoolctl.py'
+    - '!catboost_info'
+    - '!requirements.txt'
