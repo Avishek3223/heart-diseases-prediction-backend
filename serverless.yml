@@ -5,12 +5,15 @@ provider:
   runtime: python3.8
   deploymentBucket:
     name: heart-disease-deployment-bucket
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:GetObject
-        - s3:PutObject
-      Resource: arn:aws:s3:::heart-disease-data-prediction/*
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+          Resource: arn:aws:s3:::heart-disease-data-prediction/*
+
 
 functions:
   predict:

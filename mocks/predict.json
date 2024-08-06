@@ -1,11 +1,11 @@
 {
   "bucket": "heart-disease-data-prediction",
   "model_keys": [
+    "models/knn_model.pkl",
     "models/logistic_regression_model.pkl",
     "models/random_forest_model.pkl",
     "models/svm_model.pkl",
     "models/xgboost_model.pkl",
-    "models/gradient_boosting_model.pkl",
     "models/lightgbm_model.pkl",
     "models/catboost_model.pkl",
     "models/extra_trees_model.pkl"
