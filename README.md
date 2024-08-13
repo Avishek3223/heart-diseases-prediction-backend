@@ -1,12 +1,12 @@
+# Heart Disease Prediction Project
+
+This project aims to predict the likelihood of heart disease using various machine learning models. The application is designed to preprocess data, train models, and make predictions based on user-provided inputs. The project is deployed using AWS Lambda and stores data and models in AWS S3.
+
 ## Data Flow Diagram
 
 ![heart diseases drawio](https://github.com/user-attachments/assets/fdb75608-9cee-4f0b-a9c7-cacb7ae46aa7)
 
 This diagram illustrates the flow of data through the different stages of the project, from data preprocessing to model training and prediction.
-
-# Heart Disease Prediction Project
-
-This project aims to predict the likelihood of heart disease using various machine learning models. The application is designed to preprocess data, train models, and make predictions based on user-provided inputs. The project is deployed using AWS Lambda and stores data and models in AWS S3.
 
 ## Project Structure
 
