@@ -3,65 +3,57 @@ service: heart-disease-prediction
 provider:
   name: aws
   runtime: python3.8
-  region: us-east-1
   deploymentBucket:
     name: heart-disease-data-prediction
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+          Resource: arn:aws:s3:::heart-disease-data-prediction/*
 
 functions:
   predict:
     handler: functions/predict.handler
+    layers:
+      - arn:aws:lambda:us-east-1:533267181604:layer:pandas_boto3:1
+      - arn:aws:lambda:us-east-1:533267181604:layer:joblib_sklearn:1
     events:
       - http:
           path: predict
           method: post
+          cors: true
+  train_models:
+    handler: functions/training.handler
     layers:
-      - {Ref: NumpyLayer}
-      - {Ref: PandasLayer}
-      - {Ref: ScikitLearnLayer}
+      - arn:aws:lambda:us-east-1:533267181604:layer:pandas_boto3:1
+      - arn:aws:lambda:us-east-1:533267181604:layer:joblib_sklearn:1
 
 plugins:
   - serverless-python-requirements
+  - serverless-layers
 
 custom:
   pythonRequirements:
-    fileName: requirements_clean.txt
-    dockerizePip: false  # Disable Docker usage
-    slim: true  # Reduce package size by excluding unnecessary files
-    zip: true  # Compress the package
-
+    dockerizePip: false  # Disable Docker
+    layer: true
+  serverless-layers:
+    layersDeploymentBucket: heart-disease-data-prediction
 
 package:
-  exclude:
-    - .gitignore
-    - .git/**
-    - tests/**
-    - docs/**
-    - '*.pyc'
-    - '__pycache__/**'
-    - node_modules/**
-    - package.json
-    - package-lock.json
-
-resources:
-  Resources:
-    NumpyLayer:
-      Type: AWS::Lambda::LayerVersion
-      Properties:
-        LayerName: numpy-layer
-        Content: { S3Bucket: your-s3-bucket-name, S3Key: path/to/numpy.zip }
-        CompatibleRuntimes:
-          - python3.8
-    PandasLayer:
-      Type: AWS::Lambda::LayerVersion
-      Properties:
-        LayerName: pandas-layer
-        Content: { S3Bucket: your-s3-bucket-name, S3Key: path/to/pandas.zip }
-        CompatibleRuntimes:
-          - python3.8
-    ScikitLearnLayer:
-      Type: AWS::Lambda::LayerVersion
-      Properties:
-        LayerName: scikit-learn-layer
-        Content: { S3Bucket: your-s3-bucket-name, S3Key: path/to/scikit-learn.zip }
-        CompatibleRuntimes:
-          - python3.8
+  patterns:
+    - '!node_modules/**'
+    - '!__pycache__/**'
+    - '!tests/**'
+    - '!docs/**'
+    - '!functions/processing.py'
+    - '!functions/training.py'
+    - '!Dockerfile'
+    - '!package.json'
+    - '!package-lock.json'
+    - '!six.py'
+    - '!threadpoolctl.py'
+    - '!catboost_info'
+    - '!requirements.txt'

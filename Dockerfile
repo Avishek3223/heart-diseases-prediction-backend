@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements_clean.txt
 COPY . .
 
 # Command to run the application (adjust as needed)
-CMD ["functions/predict.handler"]
+CMD ["functions/predict.py"]

@@ -123,7 +123,8 @@ def handler(event, context):
     return response
 
 if __name__ == "__main__":
-    with open('predict.json') as f:
+    # Adjusted path to access 'predict.json' in the 'mocks' directory
+    with open('../mocks/predict.json') as f:
         event = json.load(f)
     context = {}
     result = handler(event, context)
