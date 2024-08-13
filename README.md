@@ -1,7 +1,6 @@
 ## Data Flow Diagram
 
-![heart diseases drawio](https://github.com/user-attachments/assets/63f332d3-c228-4554-bd8a-c6cf43d64ecc)
-
+![heart diseases drawio](https://github.com/user-attachments/assets/fdb75608-9cee-4f0b-a9c7-cacb7ae46aa7)
 
 This diagram illustrates the flow of data through the different stages of the project, from data preprocessing to model training and prediction.
 
