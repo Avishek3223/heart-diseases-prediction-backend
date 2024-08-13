@@ -1,3 +1,10 @@
+## Data Flow Diagram
+
+![heart diseases drawio](https://github.com/user-attachments/assets/63f332d3-c228-4554-bd8a-c6cf43d64ecc)
+
+
+This diagram illustrates the flow of data through the different stages of the project, from data preprocessing to model training and prediction.
+
 # Heart Disease Prediction Project
 
 This project aims to predict the likelihood of heart disease using various machine learning models. The application is designed to preprocess data, train models, and make predictions based on user-provided inputs. The project is deployed using AWS Lambda and stores data and models in AWS S3.
@@ -82,12 +89,6 @@ The training function downloads the preprocessed data from S3, splits it into tr
 ### Making Predictions
 
 The prediction function loads the trained models from S3, scales the user input data, and provides a prediction indicating the likelihood of heart disease.
-
-## Data Flow Diagram
-
-![Data Flow Diagram](images/data_flow_diagram.png)
-
-This diagram illustrates the flow of data through the different stages of the project, from data preprocessing to model training and prediction.
 
 ## Prediction Example
 
