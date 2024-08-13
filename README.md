@@ -92,8 +92,7 @@ The prediction function loads the trained models from S3, scales the user input 
 ## Prediction Example
 
 Below is an example prediction made by the system:
-
-![Prediction Example](images/prediction_example.png)
+![output](https://github.com/user-attachments/assets/3a6205d2-9ea3-4923-8137-103b544809ce)
 
 ## Contributing
 
