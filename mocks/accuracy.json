@@ -1,0 +1,6 @@
+{
+    "bucket": "heart-disease-data-prediction",
+    "model_keys":"models/majority_vote_model.pkl",
+    "scaler_key": "models/scaler.pkl",
+    "data": "preprocessed_heart.csv"
+}

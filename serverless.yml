@@ -30,6 +30,8 @@ functions:
     layers:
       - arn:aws:lambda:us-east-1:533267181604:layer:pandas_boto3:1
       - arn:aws:lambda:us-east-1:533267181604:layer:joblib_sklearn:1
+  accuracy:
+    handler: functions/accuracy.handler
 
 plugins:
   - serverless-python-requirements

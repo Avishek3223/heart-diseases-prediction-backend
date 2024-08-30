@@ -6,6 +6,8 @@ from io import BytesIO
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 def load_model_from_s3(bucket_name, model_key):
     s3 = boto3.client('s3')
