@@ -98,6 +98,5 @@ Below is an example prediction made by the system:
 
 Contributions are welcome! Please submit a pull request or open an issue to discuss changes.
 
-## License
+![Accuracy Result](https://github.com/user-attachments/assets/7df9ff7d-c64a-403c-8faf-488d5bf62ab2)
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
